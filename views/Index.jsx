@@ -4,16 +4,16 @@ class Index extends React.Component {
     render(){
         const pokemon=this.props.pokemon   
         return (
-            <div>
+            <div style={myStyle}>
                 <h1>See all The Pokemon!</h1>
                 <nav>
                     <a href='/'>Go to the home page</a>
                 </nav>
                 <ul>
                 {
-                    pokemon.map((pokeball) => {
+                    pokemon.map((pokeball,i) => {
                         return (
-                            <li key={`${pokeball._id}`}><a href={`/pokemon/${pokeball._id}`}>{capitalizeFirstCharacter(pokeball.name)}</a></li>
+                            <li key={i}><a href={`/pokemon/${i}`}>{capitalizeFirstCharacter(pokeball.name)}</a></li>
                         )
                     })
                 }
@@ -32,3 +32,13 @@ const capitalizeFirstCharacter=(string)=>{
 
 module.exports=Index;
 
+const myStyle = {
+    color: '#ffffff',
+    backgroundColor: 'grey',
+    };
+    
+    // class MyFirstComponent extends React.Component() {
+    // return (
+    //   <div style={myStyle}>My First React Component!</div>;
+    // }
+    // }
